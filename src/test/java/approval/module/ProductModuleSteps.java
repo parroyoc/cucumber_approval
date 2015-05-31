@@ -2,17 +2,17 @@ package approval.module;
 
 import approval.page.ProductAdminPageSteps;
 import approval.page.ProductCustomerPageSteps;
-import approval.util.Navigation;
+import approval.util.BDDNavigation;
 
 public class ProductModuleSteps {
 
 	public static void customerSearchAllProducts() {
-		Navigation.goTo("products.html");
+		BDDNavigation.goTo("products.html");
 		ProductCustomerPageSteps.searchAll();
 	}
 	
 	public static void deleteProduct(String product) {
-		Navigation.goTo("productAdmin.html");		
+		BDDNavigation.goTo("productAdmin.html");		
 		ProductAdminPageSteps.searchProductByName(product);
 		ProductAdminPageSteps.selectProduct(product);
 		ProductAdminPageSteps.deleteSelectedProduct();

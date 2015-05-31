@@ -1,11 +1,13 @@
 package approval.page;
 
-import approval.util.BDD;
-import approval.util.CacheKeys;
-import approval.util.ConcisePageSteps;
+import static approval.util.BDDConcisePageSteps.byClassWithinId;
+import static approval.util.BDDConcisePageSteps.clickId;
+import static approval.util.BDDConcisePageSteps.typeInId;
+import approval.util.BDDCache;
+import approval.util.BDDCacheKeys;
 import approval.util.ProductSearchResults;
 
-public class ProductAdminPageSteps extends ConcisePageSteps {
+public class ProductAdminPageSteps {
 
 	private static final String PRODUCT_ADMIN_SEARCH_NAME = "product_admin_search_name";
 	private static final String PRODUCT_ADMIN_SEARCH_BUTTON = "product_admin_search_button";
@@ -16,7 +18,7 @@ public class ProductAdminPageSteps extends ConcisePageSteps {
 		typeInId(PRODUCT_ADMIN_SEARCH_NAME, name);		
 		clickId(PRODUCT_ADMIN_SEARCH_BUTTON);
 		ProductSearchResults productSearchResults = new ProductSearchResults(byClassWithinId("result", PRODUCT_ADMIN_SEARCH_RESULT_LIST));
-		BDD.put(CacheKeys.PRODUCT_ADMIN_SEARCH_RESULT_LIST, productSearchResults);
+		BDDCache.put(BDDCacheKeys.PRODUCT_ADMIN_SEARCH_RESULT_LIST, productSearchResults);
 	}
 
 	public static void selectProduct(String name) {

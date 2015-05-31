@@ -1,14 +1,14 @@
 package approval.flow;
 
-import approval.util.Navigation;
+import approval.util.BDDNavigation;
 
 public class ApplicationBusinessSteps {
 
 	public static void startApplication() {
-		Navigation.openApplication();
+		BDDNavigation.openApplication();
 	}
 
 	public static void endApplication() {
-		Navigation.closeApplication();
+		BDDNavigation.closeApplication();
 	}
 }

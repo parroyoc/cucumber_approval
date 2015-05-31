@@ -1,6 +1,6 @@
 package approval.util;
 
-public class Navigation {
+public class BDDNavigation {
 
 	private static final String BASE_URL = "BASE_URL";
 

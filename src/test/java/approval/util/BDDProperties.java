@@ -19,7 +19,7 @@ public class BDDProperties {
 
 	private static void loadProperties() throws IOException {
 		properties = new Properties();
-		InputStream input = BDDProperties.class.getClassLoader().getResourceAsStream("config.properties");
+		InputStream input = BDDProperties.class.getResourceAsStream("config.properties");
 		properties.load(input);
 		input.close();
 	}

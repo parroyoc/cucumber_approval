@@ -12,7 +12,7 @@ public class BDDRecorder {
 	public static final int ON_DEMAND = 1;
 	public static final int NAVIGATION = 2;
 	public static final int ACTION = 3;
-	private static final String BASE_PATH = "BASE_PATH";
+	private static final String OUTPUT_PATH = "OUTPUT_PATH";
 	private static String scenarioName;
 	private static int level;
 	private static int sequence;
@@ -95,7 +95,7 @@ public class BDDRecorder {
 	}
 	
 	private static String baseScenarioName() {
-		return BDDProperties.get(BASE_PATH) + scenarioName.replace(' ', '-');
+		return BDDProperties.get(OUTPUT_PATH) + scenarioName.replace(' ', '-');
 	}
 
 }
