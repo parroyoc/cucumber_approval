@@ -1,0 +1,32 @@
+<html>
+<head>
+	<title>CUSTOMER PRODUCT PAGE</title>
+</head>
+	<h2>PRODUCT PAGE</h2>
+	<div>
+		<label for="product_customer_search_name">Search Product</label>
+			<input type="text" id="product_customer_search_name" placeholder="name"><br/>
+		<input type="submit" id="product_customer_search_button" value="Search" 
+				onclick="obtainResults(document.getElementById('product_customer_search_name').value)">
+	</div>
+	<div id="product_customer_result_container"></div>
+	
+	<script type="text/javascript">	
+		var products = ['cat', 'dog', 'duck'];
+		function obtainResults(searchString) {
+			var html = '<ul id="product_customer_search_result_list">';
+			for (i = 0; i < products.length; ++i) {
+				if (products[i].indexOf(searchString) > -1) {
+					html = html + '<li><input class="result" type="checkbox" id="product_' + products[i] + '" value="' + products[i] + '">' + products[i] + '</li>';
+				}
+			}
+			html = html + '</ul><br/>';
+			html = html + '<input type="submit" id="product_customer_buy_selected" value="Buy" onclick="buySelected()">';
+
+			document.getElementById('product_customer_result_container').innerHTML = html;
+		}
+		
+		function buySelected() {
+		}
+	</script>
+</html>

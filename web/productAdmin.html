@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title>ADMIN PRODUCT PAGE</title>
+</head>
+	<h2>PRODUCT PAGE</h2>
+	<div>
+		<label for="product_admin_search_name">Search Product</label>
+			<input type="text" id="product_admin_search_name" placeholder="name"><br/>
+		<input type="submit" id="product_admin_search_button" value="Search" 
+				onclick="obtainResults(document.getElementById('product_admin_search_name').value)">
+	</div>
+	<div id="product_admin_result_container"></div>
+	
+	<script type="text/javascript">	
+		var products = ['carrot', 'onion', 'pepper'];
+		function obtainResults(searchString) {
+			var html = '<ul id="product_admin_search_result_list">';
+			for (i = 0; i < products.length; ++i) {
+				if (products[i].indexOf(searchString) > -1 || searchString == undefined) {
+					html = html + '<li><input class="result" type="checkbox" id="product_' + products[i] + '" value="' + products[i] + '">' + products[i] + '</li>';
+				}
+			}
+			html = html + '</ul><br/>';
+			html = html + '<input type="submit" id="product_admin_delete_selected" value="Delete" onclick="deleteSelected()">';
+
+			document.getElementById('product_admin_result_container').innerHTML = html;
+		}
+		
+		function deleteSelected() {
+			for (i = 0; i < products.length; ++i) {
+				var id = 'product_' + products[i];
+				if (document.getElementById(id).checked) {
+					products.splice(i, 1);
+				}
+			}	
+			obtainResults();			
+		}
+	</script>
+</html>
